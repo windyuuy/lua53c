@@ -1,14 +1,14 @@
+ï»¿
 #pragma once
 
-//#include <syslib.h>/* °üº¬ <ctype.h> */
-#include <ctype.h> /* °üº¬ <ctype.h> */
+#include <ctype.h>
 
 //////////////////////////////////////////////////////////////////////////
 //
-//ÕâÊÇÖĞÎÄº¯ÊıÃûÌí¼ÓµÄº¯Êı
+//è¿™æ˜¯ä¸­æ–‡å‡½æ•°åæ·»åŠ çš„å‡½æ•°
 //////////////////////////////////////////////////////////////////////////
-/*¿ªÊ¼Ìí¼ÓÖ§³ÖÖĞÓ¢ÎÄ±äÁ¿Ãû*/
-/*ÒòÎªLS->currentÊÇintÀàĞÍ!*/
+/*å¼€å§‹æ·»åŠ æ”¯æŒä¸­è‹±æ–‡å˜é‡å*/
+/*å› ä¸ºLS->currentæ˜¯intç±»å‹!*/
 
 
 #define USE_CHINESE_NAME   
@@ -22,11 +22,11 @@ void readChinesename(LexState *ls)
 		if (isChineseCode(ls->current))
 		{
 			save_and_next(ls);
-			save_and_next(ls); //´¦ÀíÁËÒ»¸öÖĞÎÄ×Ö·û   
+			save_and_next(ls); //å¤„ç†äº†ä¸€ä¸ªä¸­æ–‡å­—ç¬¦   
 		}
 		else
 		{
-			save_and_next(ls); //´¦ÀíÓ¢ÎÄ×Ö·û»òÕßÏÂ»®Ïß   
+			save_and_next(ls); //å¤„ç†è‹±æ–‡å­—ç¬¦æˆ–è€…ä¸‹åˆ’çº¿   
 		}
 	} while (isChineseCode(ls->current) || ls->current == '_' || isalnum(ls->current));
 }
@@ -37,7 +37,7 @@ void readname(LexState *ls)
 {
 	do
 	{
-		save_and_next(ls); //´¦ÀíÓ¢ÎÄ×Ö·û»òÕßÏÂ»®Ïß   
+		save_and_next(ls); //å¤„ç†è‹±æ–‡å­—ç¬¦æˆ–è€…ä¸‹åˆ’çº¿   
 	} while (isChineseCode(ls->current) || ls->current == '_' || isalnum(ls->current));
 }
 #endif  
@@ -45,6 +45,6 @@ void readname(LexState *ls)
 
 //////////////////////////////////////////////////////////////////////////
 //
-//ÒÔÉÏÊÇÖĞÎÄ±äÁ¿Ãû¶¨Òåº¯Êı
+//ä»¥ä¸Šæ˜¯ä¸­æ–‡å˜é‡åå®šä¹‰å‡½æ•°
 //
 //////////////////////////////////////////////////////////////////////////

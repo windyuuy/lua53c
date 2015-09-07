@@ -963,8 +963,8 @@ static void simpleexp (LexState *ls, expdesc *v) {
       constructor(ls, v);
       return;
     }
-    case TK_FUNCTION:
-	case TK_DEF: {
+    case TK_DEF:
+    case TK_FUNCTION: {
       luaX_next(ls);
       body(ls, v, 0, ls->linenumber);
       return;
@@ -1562,8 +1562,8 @@ static void statement (LexState *ls) {
       repeatstat(ls, line);
       break;
     }
-    case TK_FUNCTION:
-	case TK_DEF: {  /* stat -> funcstat */
+    case TK_DEF:    /* stat -> funcstat */
+    case TK_FUNCTION: {  /* stat -> funcstat */
       funcstat(ls, line);
       break;
     }
